@@ -2,21 +2,21 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    overflow-x: auto;
-    white-space: nowrap;
-    height: 100dvh;
+    min-height: 100dvh;
+    margin: 0;
     background-color: rgb(246, 246, 248);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
     width: 100%;
-    height: 30px;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     color: rgb(87, 83, 83);
     border-radius: 3%;
@@ -31,6 +31,7 @@ header h1 {
     margin-left: 150px;
     justify-content: center;
     background-color: rgb(230, 232, 235);
+    font-family: 'Times New Roman', Times, serif;
 }
 header h1:hover {
     background-color: rgb(183, 185, 188);   
@@ -46,26 +47,211 @@ header h1:hover {
 }
 
 .divBody {
-    padding: 10px;
-    height: 90%;
+    border: 2px solid;
+    padding: 20px 10px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
+    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .todoContainer {
-    border: 1px solid rgb(231, 222, 222);
+    border: none;
     border-radius: 5px;
-    width: 600px;
+    width: 100%;
+    max-width: 800px;
     height: auto;
-    min-height: 300px;
+    min-height: 400px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+
+.todoInputArea {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     padding: 10px;
-    margin-top: 50px;
+    margin: 20px 5px;
+    border-radius: 5px;
+    align-items: center;
+    gap: 3px;
+    background-color: white;
+}
+
+#taskInput {
+    font-size: 1.3rem;
+    flex: 1;
+    border: 1px solid rgb(208, 199, 199);
+    border-radius: 20px;
+    padding: 5px;
+    background-color: rgb(246, 231, 231);
+}
+#taskInput:hover {
+    transform: scale(1.00001);  
+}
+
+#addBtn {
+    display: flex;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 50px;
+    padding: 5px;
+    color: white;
+    background-color: rgb(50, 115, 53);
+}
+#addBtn:hover {
+    transform: scale(1.1);
+    background-color: rgb(71, 175, 76);
+}
+
+.todoTop{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px 10px;
+    padding: 20px;
+    border: 1px solid rgb(238, 228, 228);
+    border-radius: 10px;
+    background: linear-gradient(
+      135deg, 
+    #a5a6a8 0%,    /* Starts with this at the very top */
+    #e2e4e7 40%,   /* this right in the middle */
+    #ffffff 85%   /* Fades to this at the bottom */
+  );
+    gap: 20px;
+}
+
+.myList{
+    font-size: 50px;
+    color: rgb(54, 135, 241);
+    font-family: cursive ;
+    text-shadow: 4px 4px 10px rgb(104, 101, 101);
+}
+
+#progressStats {
+    display: flex;
+    justify-content: space-between;
+    /* align-self: flex-end;   */
+    gap: 6px;
+    align-items: center;
+}
+
+#progressBar {
+    flex: 1;
+    width: 100px; 
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress {
+    width: 66%; /* Example progress */
+    height: 100%;
+    background-color: rgb(54, 135, 241);
+}
+#progressCount {
+    padding: 10px;
+    font-size: 35px;
+    font-weight: bold;
+    border: 1px dotted black;
+    border-radius: 50%;
+    color: rgb(54, 135, 241);
+    background-color: rgb(230, 232, 235);
+}
+
+#todoList {
+    list-style: none;
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.todoItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(240, 244, 248);
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgb(220, 215, 215);
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.todoItem:hover {
+    transform: scale(1.01);
+}
+
+.todoCheckText {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0; /* Crucial: allows flex child to shrink and wrap text */
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: rgba(14, 168, 73, 0.793);
+    cursor: pointer;
+    border: 2px solid;
+    border-radius: 50%;
+}
+.checkbox:hover {
+    background-color: rgb(83, 250, 83);
+}
+
+.taskText {
+    flex: 1;
+    font-size: 1rem;
+    color: rgb(61, 57, 57);
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.actionBtn {
+    gap: 8px;
+    flex-shrink: 0;
+    align-self: flex-end;
+}
+
+.editBtn {
+    padding: 5px 10px;
+    background-color: rgb(100, 100, 252);
+    color: white;
+    font-size: 12px;
+    user-select: none;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+
+.editBtn:hover {
+    background-color: rgb(25, 25, 233);
+}
+
+.deleteBtn {
+    padding: 5px 10px;
+    background-color: rgb(255, 98, 98);
+    font-size: 0.8rem;
+    color: white;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+
+.deleteBtn:hover {
+    background-color: rgb(228, 4, 4)
 }
 
 footer {
+    width: 100%;
+    margin: 0;
     height: auto;
     padding: 10px;
     flex: 0 0 auto;

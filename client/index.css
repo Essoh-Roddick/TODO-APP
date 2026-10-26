@@ -2,20 +2,24 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    overflow-x: auto;
-    white-space: nowrap;
-    height: 100dvh;
-    background-color: rgb(246, 246, 248);
+    margin: 0;
+    min-height: 100dvh;
+    background-color: rgb(254, 254, 254);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
-    height: 30px;
-    padding: 15px;
+    position: relative;
+    box-sizing: border-box;
+    width: auto;
+    min-width: 100%;
+    padding: 10px;
     text-align: center;
     color: rgb(87, 83, 83);
     border-radius: 3%;
@@ -30,6 +34,7 @@ header h1 {
     margin-left: 150px;
     justify-content: center;
     background-color: rgb(230, 232, 235);
+    font-family: 'Times New Roman', Times, serif;
 }
 header h1:hover {
     background-color: rgb(183, 185, 188);   
@@ -46,13 +51,74 @@ header h1:hover {
 
 .divBody {
     padding: 10px;
-    height: 90%;
+    flex: 1;
     text-align: center;
+}
+
+.welcomeL1 {
+    font-size: 45px;
+    margin: 20px 10px;
+    color: rgb(1, 48, 48);
+}
+
+.welcomeL2 {
+    font-size: 32px;
+    margin: 20px 10px;
+    color: rgb(100, 100, 100);
+}
+
+#welcomeTodoLink {
+    display: block;
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: rgb(223, 235, 251);
+    color: rgb(25, 36, 236);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#welcomeTodoLink:hover {
+    background-color: rgb(190, 197, 205)
+}
+
+.welcomeImage {
+    border: none;
+    width: auto;
+    max-width: 500px;
+    height: 400px;
+    margin: 20px 1px;
 
 }
 
+.accountLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#loginLink, #signupLink {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(10, 65, 136);
+    color: rgb(248, 248, 250);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+#loginLink:hover, #signupLink:hover {
+    background-color: rgb(92, 129, 179);
+}
+
 footer {
+    position: relative;
+
+    width: auto;
     height: auto;
+    box-sizing: border-box;
     padding: 10px;
     flex: 0 0 auto;
     text-align: center;
