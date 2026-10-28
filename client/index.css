@@ -84,11 +84,9 @@ header h1:hover {
 
 .welcomeImage {
     border: none;
-    width: auto;
-    max-width: 500px;
+    width: 410px;
     height: 400px;
     margin: 20px 1px;
-
 }
 
 .accountLinks {

@@ -27,8 +27,8 @@ header {
 header h1 {
     width: 120px;
     border-radius: 40%;
-    margin-bottom: 10px;
-    margin-left: 150px;
+    margin-bottom: 2px;
+    margin-left: 50px;
     justify-content: center;
     background-color: rgb(230, 232, 235);
     font-family: 'Times New Roman', Times, serif;
@@ -47,7 +47,6 @@ header h1:hover {
 }
 
 .divBody {
-    border: 2px solid;
     padding: 20px 10px;
     flex: 1;
     display: flex;
@@ -84,7 +83,7 @@ header h1:hover {
 }
 
 #taskInput {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     flex: 1;
     border: 1px solid rgb(208, 199, 199);
     border-radius: 20px;
@@ -109,6 +108,10 @@ header h1:hover {
     background-color: rgb(71, 175, 76);
 }
 
+#inputAlert {
+    color: rgb(247, 88, 88);
+}
+
 .todoTop{
     display: flex;
     flex-direction: column;
@@ -126,8 +129,12 @@ header h1:hover {
     gap: 20px;
 }
 
+.todoTop:hover {
+    transform: scale(1.02);
+}
+
 .myList{
-    font-size: 50px;
+    font-size: 55px;
     color: rgb(54, 135, 241);
     font-family: cursive ;
     text-shadow: 4px 4px 10px rgb(104, 101, 101);
@@ -142,27 +149,32 @@ header h1:hover {
 }
 
 #progressBar {
-    flex: 1;
-    width: 100px; 
+    flex: 1; 
     height: 10px;
-    background-color: #ddd;
+    background-color: #cdc7c7;
     border-radius: 5px;
     overflow: hidden;
 }
 
 #progress {
-    width: 66%; /* Example progress */
+    /*width: 66%; /* Example progress */
     height: 100%;
     background-color: rgb(54, 135, 241);
 }
 #progressCount {
-    padding: 10px;
-    font-size: 35px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px; 
+    font-size: 20px;
     font-weight: bold;
     border: 1px dotted black;
     border-radius: 50%;
     color: rgb(54, 135, 241);
     background-color: rgb(230, 232, 235);
+    flex-shrink: 0;
 }
 
 #todoList {
@@ -208,6 +220,11 @@ header h1:hover {
     background-color: rgb(83, 250, 83);
 }
 
+.checkbox:checked ~ .taskText {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
 .taskText {
     flex: 1;
     font-size: 1rem;
@@ -217,6 +234,7 @@ header h1:hover {
 }
 
 .actionBtn {
+    display: flex;
     gap: 8px;
     flex-shrink: 0;
     align-self: flex-end;
