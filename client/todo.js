@@ -98,10 +98,13 @@ let editingIndex = null;
 const handleEditTask = (index) => {
 
     const taskInput = document.getElementById("taskInput");
-     taskInput.value = tasks[index].text ;
+    
+    if(!tasks[index].completed){
+        taskInput.value = tasks[index].text ;
      editingIndex = index;
 
      taskInput.focus();
+    }
 
 
     /*
