@@ -9,10 +9,12 @@ const progressCount = document.getElementById("progressCount");
 
 const handleSave = () => {
     localStorage.setItem('savedTasks', JSON.stringify(tasks));
+    
 }
 
 const handleLoad = () => {
     const savedTasks = localStorage.getItem('savedTasks');
+
 
     if(savedTasks) {
         return JSON.parse(savedTasks);
@@ -138,6 +140,27 @@ const handleProgress = () => {
 
 }
 
+const addToHistory = (task) => {
+    const savedHistory = localStorage.getItem('savedHistory');
+    let history = savedHistory ? JSON.parse(savedHistory) : [];
+    
+    if (!history.some(t => t.id === task.id)){
+        history.push(task);
+        localStorage.setItem('savedHistory', JSON.stringify(history));
+    }
+    else {
+        return ;
+    }
+}
+
+const removeFromHistory = (taskId) => {
+    const savedHistory = localStorage.getItem(savedHistory);
+    if(!savedHistory){ return; }
+
+    let history = JSON.parse(savedHistory);
+    history = history.filter(t => t.id !== taskId);
+    localStorage.setItem('savedHistory', savedHistory);
+}
 
 updateList();
 

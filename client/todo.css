@@ -46,7 +46,7 @@ header h1:hover {
     color: rgb(1, 48, 48);
 }
 #t2 {
-    margin-left: -10px;
+   /* margin-left: -8px; */
     color: rgb(54, 135, 241);
 }
 
@@ -96,7 +96,7 @@ header h1:hover {
     justify-content: space-between;
     width: 100%;
     padding: 10px;
-    margin: 20px 5px;
+    margin: 10px 2px;
     border-radius: 5px;
     align-items: center;
     gap: 3px;
@@ -104,6 +104,7 @@ header h1:hover {
 }
 
 #taskInput {
+    display: flex;
     font-size: 1.1rem;
     flex: 1;
     border: 1px solid rgb(208, 199, 199);
@@ -143,9 +144,9 @@ header h1:hover {
     border-radius: 10px;
     background: linear-gradient(
       135deg, 
-    #a5a6a8 0%,    /* Starts with this at the very top */
+    #a5a6a8 0%,    /* starts with this at the top */
     #e2e4e7 40%,   /* this right in the middle */
-    #ffffff 85%   /* Fades to this at the bottom */
+    #ffffff 85%   /* then to this at the bottom */
   );
     gap: 20px;
 }
@@ -211,7 +212,7 @@ header h1:hover {
     padding: 10px;
     background-color: rgb(240, 244, 248);
     margin-bottom: 10px;
-    border-bottom: 2px solid rgb(220, 215, 215);
+    border-bottom: 3px solid rgb(220, 215, 215);
     border-radius: 5px;
     gap: 10px;
 }
@@ -225,7 +226,7 @@ header h1:hover {
     align-items: center;
     gap: 10px;
     flex: 1;
-    min-width: 0; /* Crucial: allows flex child to shrink and wrap text */
+    min-width: 0; /*  allows flex child to shrink and wrap text or maybe not idk */
 }
 
 .checkbox {
@@ -296,3 +297,5 @@ footer {
     text-align: center;
     background-color: rgb(165, 168, 172);
 }
+
+
