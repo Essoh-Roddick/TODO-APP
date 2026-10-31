@@ -1,25 +1,28 @@
 
 
-let tasks = [];
+let history = [];
 
-const loadTasks = () => {
-    const savedTasks = localStorage.getItem('savedTasks');
-    if (savedTasks) {
-        tasks = JSON.parse(savedTasks);
+const loadHistory = () => {
+    const savedHistory = localStorage.getItem('savedHistory');
 
-        return tasks.filter(t => t.completed);
+    if (savedHistory) {
+        history = JSON.parse(savedHistory);
+        const now = Date.now();
+        const ThirtyDaysMs = 30 * 24 * 3600 * 1000;
+
+        history = history.filter(t => 
+            (now - t.completedAt) < ThirtyDaysMs
+        );
+         return history;
     }
-
-    else {
-        return [];
-    }
+       return [];
 }
 
   const historyList = document.getElementById('historyList');
   const historyTop = document.getElementById('historyTop');
 
     function updateList () {
-        const completedTasks = loadTasks();
+        const completedTasks = loadHistory();
 
         historyList.innerHTML = '';
 

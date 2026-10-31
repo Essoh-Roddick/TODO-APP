@@ -55,12 +55,20 @@ header h1:hover {
     margin-bottom: -35px;
 }
 
+.historyLink {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .history {
     text-decoration: none; 
     padding: 5px;
     color: rgb(0, 7, 7);
     font-size: 1.1rem;
     border-radius: 3px;
+    background-color: #e4dede;
+    margin: 5px 5px 10px;
+    padding: 5px;
 }
 
 .history:hover {
@@ -286,6 +294,22 @@ header h1:hover {
 
 .deleteBtn:hover {
     background-color: rgb(228, 4, 4)
+}
+
+#clear {
+    background-color: #c9c6c6;
+    padding: 5px;
+    margin: 10px 5px;
+    width: auto;
+    max-width: 80px;
+    border-radius: 5px;
+    justify-self: flex-end;
+    font-size: 1.05rem;
+}
+
+#clear:hover {
+    transform: scale(1.03);
+    background-color: #bababb;
 }
 
 footer {

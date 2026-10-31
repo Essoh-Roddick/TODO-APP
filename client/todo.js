@@ -9,7 +9,7 @@ const progressCount = document.getElementById("progressCount");
 
 const handleSave = () => {
     localStorage.setItem('savedTasks', JSON.stringify(tasks));
-    
+
 }
 
 const handleLoad = () => {
@@ -17,11 +17,44 @@ const handleLoad = () => {
 
 
     if(savedTasks) {
-        return JSON.parse(savedTasks);
+        let loadedTasks = JSON.parse(savedTasks);
+        const now = Date.now();
+        const TwoDaysMs = 2000;//2 * 24 * 3600 * 1000 ;
+
+        loadedTasks = loadedTasks.filter(t => {
+            if(t.completed && t.completedAt) {
+                return (now - t.completedAt) < TwoDaysMs ;
+            }
+
+            return true ;
+        });
+        return loadedTasks ;
     }
 
     return [] ;
 }
+
+
+const addToHistory = (task) => {
+    const savedHistory = localStorage.getItem('savedHistory');
+    let history = savedHistory ? JSON.parse(savedHistory) : [];
+    
+    if (!history.some(t => t.id === task.id)){
+        history.push(task);
+        localStorage.setItem('savedHistory', JSON.stringify(history));
+    }
+
+}
+
+const removeFromHistory = (taskId) => {
+    const savedHistory = localStorage.getItem('savedHistory');
+    if(!savedHistory){ return; }
+
+    let history = JSON.parse(savedHistory);
+    history = history.filter(t => t.id !== taskId);
+    localStorage.setItem('savedHistory', JSON.stringify(history));
+}
+
 
 let tasks = handleLoad();
 
@@ -61,6 +94,7 @@ const handleAddTask =  () => {
     }
     else if (editingIndex !== null) {
         tasks[editingIndex].text = text; 
+        editingIndex = null;
     }
 
     else {
@@ -91,6 +125,15 @@ const handleAddTask =  () => {
 
 const handleToggleTask = (index) => { 
     tasks[index].completed = !tasks[index].completed;
+
+    if(tasks[index].completed) {
+        tasks[index].completedAt = Date.now();
+        addToHistory(tasks[index]);
+    }
+    else {
+        removeFromHistory(tasks[index].id);
+        delete tasks[index].completedAt;
+    }
 
     handleSave();
     updateList();  
@@ -140,27 +183,6 @@ const handleProgress = () => {
 
 }
 
-const addToHistory = (task) => {
-    const savedHistory = localStorage.getItem('savedHistory');
-    let history = savedHistory ? JSON.parse(savedHistory) : [];
-    
-    if (!history.some(t => t.id === task.id)){
-        history.push(task);
-        localStorage.setItem('savedHistory', JSON.stringify(history));
-    }
-    else {
-        return ;
-    }
-}
-
-const removeFromHistory = (taskId) => {
-    const savedHistory = localStorage.getItem(savedHistory);
-    if(!savedHistory){ return; }
-
-    let history = JSON.parse(savedHistory);
-    history = history.filter(t => t.id !== taskId);
-    localStorage.setItem('savedHistory', savedHistory);
-}
 
 updateList();
 
