@@ -28,11 +28,10 @@ const loadHistory = () => {
 
         if (completedTasks.length === 0) {
             historyTop.innerHTML = "You have no recently completed tasks";
-            return
         }
 
         else {
-            historyTop.innerHTML = "Your recently comleted tasks";
+            historyTop.innerHTML = "Your recently completed tasks";
 
             completedTasks.forEach((task) => {
                 const li = document.createElement('li');
@@ -48,9 +47,30 @@ const loadHistory = () => {
                 historyList.appendChild(li);
             });
         }
+        toggleClearBtn();
     }
 
+const clearBtn =document.getElementById("clearBtn");
+
+const handleClear = () => {
+    history = [];   
+    localStorage.removeItem('savedHistory');
+
     updateList();
+
+    console.log("History cleared");
+}
+
+const toggleClearBtn = () => {
+    if (history.length === 0 ) {
+        clearBtn.style.display = "none";
+    } else {
+        clearBtn.style.display = "block";
+    }
+}
+clearBtn.addEventListener("click", handleClear);
+
+updateList();
 
 document.getElementById("year").textContent = new Date().getFullYear();
 

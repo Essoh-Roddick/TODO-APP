@@ -102,7 +102,7 @@ header h1:hover {
 .todoInputArea {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin: 10px 2px;
     border-radius: 5px;
@@ -113,7 +113,8 @@ header h1:hover {
 
 #taskInput {
     display: flex;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    width: 100%;
     flex: 1;
     border: 1px solid rgb(208, 199, 199);
     border-radius: 20px;
@@ -296,7 +297,7 @@ header h1:hover {
     background-color: rgb(228, 4, 4)
 }
 
-#clear {
+#clearBtn {
     background-color: #c9c6c6;
     padding: 5px;
     margin: 10px 5px;
@@ -307,7 +308,7 @@ header h1:hover {
     font-size: 1.05rem;
 }
 
-#clear:hover {
+#clearBtn:hover {
     transform: scale(1.03);
     background-color: #bababb;
 }

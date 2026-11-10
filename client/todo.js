@@ -6,7 +6,6 @@ const inputAlert = document.getElementById("inputAlert");
 const progressBar = document.getElementById("progressBar");
 const progressCount = document.getElementById("progressCount");
 
-
 const handleSave = () => {
     localStorage.setItem('savedTasks', JSON.stringify(tasks));
 
@@ -80,6 +79,7 @@ function updateList () {
     });  
 
     handleProgress();
+    toggleClearBtn();
 }
 
 const handleAddTask =  () => {
@@ -183,6 +183,23 @@ const handleProgress = () => {
 
 }
 
+const clearBtn =document.getElementById("clearBtn");
+
+const handleClear = () => {  
+    tasks = [];
+    handleSave();
+    updateList();
+
+    console.log("Cleared");
+ }
+ const toggleClearBtn = () => {
+    if (tasks.length === 0) {
+        clearBtn.style.display = "none";
+    } else {
+        clearBtn.style.display = "block";
+    }
+}
+clearBtn.addEventListener("click", handleClear);
 
 updateList();
 
