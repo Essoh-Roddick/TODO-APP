@@ -13,9 +13,55 @@
         <h1> <span id="t1">2B</span> <span id="t2">Done</span></h1>
     </header>
     <div class="divBody" >
-      <div id="formContainer">
-         <form action=""></form>
-      </div>
+        <main class="authContainer">
+            <div class="authCard">
+                <h2>Welcome!</h2>
+                <p>Create an account to get started</p>
+
+                <form id="signUpForm" action="submit">
+                    <div class="inputGroup">
+                    <label for="fullName">Full Name</label>
+                    <div class="inputFieldWrapper">
+                        <input type="text" id="fullName" name="name" placeholder="Full Name" required>
+                        <ion-icon name="person-outline"></ion-icon>
+                    </div>
+                    </div>
+
+                    <div class="inputGroup">
+                        <label for="email">Email</label>
+                        <div class="inputFieldWrapper">
+                           <input type="email" name="email" id="email" placeholder="you@mail.com" required>
+                           <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+                    </div>
+
+                    <div class="inputGroup">
+                        <label for="password">Password</label>
+                        <div class="inputFieldWrapper">
+                           <input type="password" name="password" id="password" placeholder="********" required>
+                           <ion-icon name="eye-outline"></ion-icon>
+                        </div>
+                    </div>
+
+                    <div class="inputGroup">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="inputFieldWrapper">
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="********" required>
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
+                    </div> 
+
+                    <p id="errorMsg" class="errorMessage"></p>
+
+                    <button type="submit" class="submitBtn">Sign Up</button>
+                </form>
+
+                <div class="authFooter">
+                    <p>Already have an account? <a href="signIn.html">Sign in</a></p>
+                </div>
+
+            </div>
+        </main>
     </div>
 
     <footer>
@@ -24,6 +70,7 @@
     </footer>
 
     <script src="auth.js"></script>
+
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
 

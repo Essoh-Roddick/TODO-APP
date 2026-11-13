@@ -12,15 +12,35 @@
     <header>
         <h1> <span id="t1">2B</span> <span id="t2">Done</span></h1>
     </header>
+
     <div class="divBody" >
         <main class="authContainer">
             <div class="authCard">
                 <h2>Welcome back!</h2>
-                <p>Sign in to your account</p>
+                <p class="titleTop">Sign in to your account</p>
 
                 <form id="signInForm" action="submit">
+                    <div class="inputGroup">
+                        <label for="email">Email</label>
+                        <div class="inputFieldWrapper">
+                            <input type="email" name="email" id="email" placeholder="you@mail.com" required>
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>  
+                    </div>
 
+                    <div class="inputGroup">
+                        <label for="password">Password</label>
+                        <div class="inputFieldWrapper">
+                            <input type="password" name="password" id="password" placeholder="********" required>
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submitBtn">Sign In</button>
                 </form>
+                <div class="authFooter">
+                    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                </div>
             </div>   
         </main>
         
@@ -32,6 +52,7 @@
     </footer>
 
     <script src="auth.js"></script>
+
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
 
